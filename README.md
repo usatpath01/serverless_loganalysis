@@ -19,13 +19,13 @@ docker
 3 directories, 9 files
 ```
 
-l. To Build the image: 
+1. To Build the image: 
 `sudo docker-compose build`
-l. To Run containers:
+1. To Run containers:
 `sudo docker-compose up`
-l. To Run a container
+1. To Run a container
 `sudo docker exec -it containername bash`
-l. To Stop the containers:
+1. To Stop the containers:
 `sudo docker-compose down`
     
 To Test the Application:
