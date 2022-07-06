@@ -22,7 +22,7 @@ sudo docker-compose build
 2. To Run containers:
 sudo docker-compose up
 3. To Run a container
-sudo docker exec -it <containername> bash
+sudo docker exec -it containername bash
 4. To Stop the containers:
 sudo docker-compose down
     
