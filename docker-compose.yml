@@ -1,0 +1,62 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  apache:
+    container_name: apache
+    build: ./docker/apache
+    pid: host
+    links:
+      - php
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/usr/local/apache2/htdocs
+      - /var/log/container_logs/apache_container:/usr/local/apache2/log
+      - /var/log/container_logs/apache_container/audit_logs:/var/log/audit/
+    privileged: True
+  php:
+    container_name: php
+    build: ./docker/php
+    pid: host
+    links:
+      - mysql
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./src:/usr/local/apache2/htdocs
+      #- /var/log/container_logs/php_container:/var/log/apache2
+    working_dir: /usr/local/apache2/htdocs
+    privileged: True
+  mysql:
+    #image: mysql:8.0.27
+    container_name: mysql
+    build: ./docker/mysql
+    pid: host
+    environment:
+      MYSQL_ROOT_PASSWORD: '<root-password>'
+      MYSQL_DATABASE: helloworld
+      MYSQL_USER: helloworld
+      MYSQL_PASSWORD: '<db-password>'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/mysql:/var/lib/mysql
+      #- ./database/mysql/log:/var/log/mysql
+      - /var/log/container_logs/mysql_container:/var/lib/mysql/log
+      - /var/log/container_logs/mysql_container/audit_logs:/var/log/audit/
+    privileged: True
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    pid: host
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8085:80
+    volumes:
+      - /var/log/container_logs/pma_container:/var/log/apache2
