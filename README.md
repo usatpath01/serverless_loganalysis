@@ -30,8 +30,8 @@ docker
     
 ### To Test the Application:
 ## Once the containers are up and running
-    * Browse in browser: [http://localhost/login/login.php](http://localhost/login/login.php) or `wget http://localhost/login/login.php`
-    * Mysql phpmyadmin: [http://localhost:8085/index.php](http://localhost:8085/index.php)
+* Browse in browser: [http://localhost/login/login.php](http://localhost/login/login.php) or `wget http://localhost/login/login.php`
+* Mysql phpmyadmin: [http://localhost:8085/index.php](http://localhost:8085/index.php)
 
     
     
