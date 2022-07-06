@@ -28,10 +28,10 @@ docker
 1. To Stop the containers:
 `sudo docker-compose down`
     
-To Test the Application:
-Once the containers are up and running
-Browse in browser: [http://localhost/login/login.php](http://localhost/login/login.php) or `wget http://localhost/login/login.php`
-Mysql phpmyadmin: [http://localhost:8085/index.php](http://localhost:8085/index.php)
+### To Test the Application:
+## Once the containers are up and running
+    * Browse in browser: [http://localhost/login/login.php](http://localhost/login/login.php) or `wget http://localhost/login/login.php`
+    * Mysql phpmyadmin: [http://localhost:8085/index.php](http://localhost:8085/index.php)
 
     
     
