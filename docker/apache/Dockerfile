@@ -11,7 +11,8 @@ RUN echo "Include /usr/local/apache2/conf/web-server-mysql-3.apache.conf" \
     >> /usr/local/apache2/conf/httpd.conf
 
 RUN apt-get update
-RUN apt install auditd -y
+#RUN apt install auditd -y
+
 #RUN chmod -R 777 /etc/audit
 #RUN chmod -R 777 /sbin/auditd
 #RUN service auditd start

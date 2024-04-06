@@ -8,11 +8,11 @@ services:
     links:
       - php
     ports:
-      - "80:80"
+      - "8082:80"
     volumes:
       - ./src:/usr/local/apache2/htdocs
       - /var/log/container_logs/apache_container:/usr/local/apache2/log
-      - /var/log/container_logs/apache_container/audit_logs:/var/log/audit/
+      #- /var/log/container_logs/apache_container/audit_logs:/var/log/audit/
     privileged: True
   php:
     container_name: php
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./src:/usr/local/apache2/htdocs
       #- /var/log/container_logs/php_container:/var/log/apache2
-      - /var/log/container_logs/php_container/audit_logs:/var/log/audit
+      #- /var/log/container_logs/php_container/audit_logs:/var/log/audit
     working_dir: /usr/local/apache2/htdocs
     privileged: True
   mysql:
@@ -43,8 +43,8 @@ services:
     volumes:
       - ./database/mysql:/var/lib/mysql
       #- ./database/mysql/log:/var/log/mysql
-      - /var/log/container_logs/mysql_container:/var/lib/mysql/log
-      - /var/log/container_logs/mysql_container/audit_logs:/var/log/audit/
+      #- /var/log/container_logs/mysql_container:/var/lib/mysql/log
+      #- /var/log/container_logs/mysql_container/audit_logs:/var/log/audit/
     privileged: True
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
